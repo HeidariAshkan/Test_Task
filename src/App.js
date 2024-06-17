@@ -24,6 +24,7 @@ function App() {
 
 
   const handleChange = (e,id,key) => {
+    e.preventDefault()
     if(e.target.checked){
       setFilters({...filters,[key]:[...filters[key],id]})
     }else{
@@ -34,6 +35,10 @@ function App() {
   const handleInputFocus = () => {
     setShowAutocomplete(true)
   };
+
+  const handleCloseInput = ()=>{
+    setShowAutocomplete(false)
+  }
 
   const handleMovieSelect = (movieTitle) => {
     setInput(movieTitle);
@@ -63,8 +68,8 @@ function App() {
   return (
     <div className=''>
       <div className='flex gap-3 sm:flex-row flex-col-reverse'>
-        <div className='lg:w-2/5 md:w-2/4 flex flex-col gap-'>
-          <Input onFocus={handleInputFocus} type='text' placeholder='Enter movie name' value={input} onChange={(e)=>{setInput(e.target.value)}}/>
+        <div className='lg:w-2/5 md:w-2/4 flex flex-col gap-1'>
+          <Input onClose={handleCloseInput} onFocus={handleInputFocus} type='text' placeholder='Enter movie name' value={input} onChange={(e)=>{setInput(e.target.value)}}/>
           <div className={`flex flex-col gap-2 bg-white transition-all overflow-hidden ${movies.length > 0 && showAutocomplete ? "border border-gray97 px-3 py-4 max-h-screen" : "max-h-0" }`  }>
             {movies?.map((item)=>(
               <div key={item?.id}>

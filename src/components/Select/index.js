@@ -6,8 +6,8 @@ const Select = ({title, children , onToggle , isOpen}) => {
 
   return (
   <>
-    <div className='flex flex-col cursor-pointer w-full relative bg-white' onClick={onToggle}>
-        <div className='px-3 py-4 w-full bg-white border border-gray97'>
+    <div className='flex flex-col cursor-pointer w-full relative bg-white' >
+        <div className='px-3 py-4 w-full bg-white border border-gray97' onClick={onToggle}>
             <div className='flex items-center justify-between gap-4' >
                 <p className='text-sm text-medium '>
                     {title}
