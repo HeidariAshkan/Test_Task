@@ -64,7 +64,6 @@ function App() {
     return newdata.length !== 0 ? newdata : [];
   }, [input, filters.genre, filters.rating]);
 
-  console.log(filters)
 
   return (
     <div className=''>
