@@ -70,7 +70,7 @@ function App() {
       <div className='flex gap-3 sm:flex-row flex-col-reverse'>
         <div className='lg:w-2/5 md:w-2/4 flex flex-col gap-1'>
           <Input onClose={handleCloseInput} onFocus={handleInputFocus} type='text' placeholder='Enter movie name' value={input} onChange={(e)=>{setInput(e.target.value)}}/>
-          <div className={`flex flex-col gap-2 bg-white transition-all overflow-hidden ${movies.length > 0 && showAutocomplete ? "border border-gray97 px-3 py-4 max-h-screen" : "max-h-0" }`  }>
+          <div className={`flex flex-col gap-2 bg-white transition-all overflow-hidden z-10 ${movies.length > 0 && showAutocomplete ? "border border-gray97 px-3 py-4 max-h-screen" : "max-h-0" }`  }>
             {movies?.map((item)=>(
               <div key={item?.id}>
                 <Movie onClick={()=>{handleMovieSelect(item.title)}} item={item}/>
