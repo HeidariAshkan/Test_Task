@@ -16,7 +16,7 @@ const Select = ({title, children , onToggle , isOpen}) => {
             </div>
 
         </div>
-        <div className={`flex flex-col absolute left-0 w-full min-w-max top-full mt-1  gap-1 bg-white border-gray97 transition-all overflow-hidden ${isOpen ? "max-h-screen p-1 border" :"max-h-0"}`}>
+        <div className={`flex flex-col absolute left-0 w-full min-w-max top-full mt-1  gap-1 bg-white border-gray97 transition-all overflow-hidden z-20 ${isOpen ? "max-h-screen p-1 border" :"max-h-0"}`}>
                 {children}
         </div>
     </div>
