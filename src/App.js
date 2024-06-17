@@ -24,7 +24,6 @@ function App() {
 
 
   const handleChange = (e,id,key) => {
-    e.preventDefault()
     if(e.target.checked){
       setFilters({...filters,[key]:[...filters[key],id]})
     }else{
@@ -65,6 +64,8 @@ function App() {
     return newdata.length !== 0 ? newdata : [];
   }, [input, filters.genre, filters.rating]);
 
+  console.log(filters)
+
   return (
     <div className=''>
       <div className='flex gap-3 sm:flex-row flex-col-reverse'>
@@ -99,7 +100,7 @@ function App() {
         <div className='lg:w-1/12 md:w-1/6 '>
           <Select onToggle={()=>{handleDropdownToggle('genre')}} isOpen={openDropdown === 'genre'} title='Genre'>
             {data.categories?.map((item) => (
-              <Checkbox checked={filters.genre.find((it)=>it === item.id)} onChange={(e)=>{handleChange(e,item.title,'genre')}} key={item.id} item={item}/>
+              <Checkbox onChange={(e)=>{handleChange(e,item.title,'genre')}} key={item.id} item={item}/>
             ))}
           </Select>
         </div>
